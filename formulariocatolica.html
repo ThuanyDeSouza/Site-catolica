@@ -1,0 +1,118 @@
+<html>
+	<head>
+
+		<link href="estilos/sitecatolica.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+		<meta charset="UTF-8">
+		
+		<title> CADASTRO - Catolica SC </title>
+		
+	</head>
+	
+	<body>
+
+        <div id="Cabecalho">
+            <img id="logocatolica" src= "imagens/logocatolica.jpg" alt="logo catolica">
+        </div>
+
+        <form name="formcatolica" method="post" onsubmit="return false">
+        <div id="centro">
+            <h1>Cadastro Novos Alunos</h1>
+        <div class="field">
+            <span class="field span">Nome:</span>
+            <input type="text" name="nome" placeholder="digite seu Nome aqui"> <br/>
+            <span class="field span">Senha:</span>
+            <input type="password" name="senha" placeholder="digite sua Senha aqui"> <br/>
+        </div>
+        <div class="radiobox">
+            <p class="sub">Qual o seu gênero?</p>
+            <input type="radio" name="genero" value="feminino">Feminino <br>
+            <input type="radio" name="genero" value="masculino">Masculino <br>
+            <p class="sub">Qual o seu Estado Civil?</p>
+            <input type="radio" name="estadocivil" value="casado">Casado <br>
+            <input type="radio" name="estadocivil" value="solteiro">Solteiro <br>
+            <input type="radio" name="estadocivil" value="divorciado">Divorciado <br>
+        </div>
+        <br>
+        <br>
+        <div>
+            Data de nascimento: <input type="date" name="nascimento">
+        </div> 
+     
+        <div>
+            <p class="sub">Qual área te inressa?</p>
+
+            <input type="checkbox" name="curso" value="exatas">Exatas<br>
+            <input type="checkbox" name="curso" value="biologicas">Biológicas<br>
+            <input type="checkbox" name="curso" value="humanas">Humanas
+        </div>
+
+            <p class="sub">Selecione uma foto para o seu perfil:</p>
+            <input type="file" name="arquivos"> 
+            <br>
+            <div >
+                <br>
+            <button class="botao" onclick="validar()">Enviar
+            </div>
+        </div>
+
+
+    </body>
+</html>
+
+<script language="javascript" type="text/javascript">
+	function validar() 
+        {
+		var nome = formcatolica.nome.value;
+        if (nome == "") 
+        {
+			alert('Preencha o campo com seu nome');
+			formcatolica.nome.focus();
+			return false;
+		}
+		var senha = formcatolica.senha.value;
+        if (senha == "") 
+        {
+			alert('Preencha o campo com sua senha');
+			formcatolica.senha.focus();
+			return false;
+		}
+		var genero = formcatolica.genero.value;
+        if (genero == "") 
+        {
+			alert('Selecione um genero');
+			formcatolica.genero.focus();
+			return false;
+		}
+		var estadocivil = formcatolica.estadocivil.value;
+		if (estadocivil == "") 
+        {
+			alert('Selecione o seu estadocivil');
+			formcatolica.estadocivil.focus();
+			return false;
+		}
+        var nascimento = formcatolica.nascimento.value;
+		if (nascimento == "") 
+        {
+			alert('Identifique a sua data de nascimento');
+			formcatolica.nascimento.focus();
+			return false;
+		}
+        var checado = false
+        for (let i = 0; i < formcatolica.curso.length; i++){
+        if (formcatolica.curso[i].checked)
+        checado = true;
+        }
+        if (!checado)
+        alert("escolha o curso")
+        var arquivos = formcatolica.arquivos.value;
+		if (arquivos == "") 
+        {
+			alert('Selecione uma foto');
+			formcatolica.arquivos.focus();
+			return false;
+		}
+        return true;
+}
+</script>
